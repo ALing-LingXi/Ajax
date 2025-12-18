@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box{
+      width: 200px;
+      height: 300px;
+      border: 3px tomato solid;
+    }
+  </style>
+</head>
+<body>
+  <button>点我获取请求</button>
+  <div id="box">
+    
+  </div>
+  <script>
+    const btn = document.getElementsByTagName("button")[0]
+    const box = document.querySelector("#box")
+    btn.onclick = function(){
+      //创建
+      const xhr = new XMLHttpRequest()
+      //初始化，设置请求方法和url
+      xhr.open("get","http://127.0.0.1:3000/server")
+      //发送
+      xhr.send()
+      //处理返回的结果
+      xhr.onreadystatechange=function(){
+        if(xhr.readyState===4){
+          if(xhr.status>=200&&xhr.status<300){
+            box.innerHTML=xhr.response
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -15,7 +15,6 @@
 <body>
   <button>点我获取请求</button>
   <div id="box">
-    
   </div>
   <script>
     const btn = document.getElementsByTagName("button")[0]
@@ -24,7 +23,7 @@
       //创建
       const xhr = new XMLHttpRequest()
       //初始化，设置请求方法和url
-      xhr.open("get","http://127.0.0.1:3000/server")
+      xhr.open("get","http://127.0.0.1:3000/server?a=10&b=20&c=30")
       //发送
       xhr.send()
       //处理返回的结果

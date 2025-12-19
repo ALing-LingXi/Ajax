@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>get请求</button>
+  <button>post请求</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const btn1 = document.getElementsByTagName("button")[0]
+    const btn2 = document.getElementsByTagName("button")[1]
+    axios.defaults.baseURL='http://127.0.0.1:4000'
+    btn1.onclick=()=>{
+      axios.get("/server",{
+        params:{
+          id:"778887",
+          tag:"千恋万花"
+        },
+        headers:{
+          name:"axios",
+          age:1970
+        }
+      }).then(value=>{
+        console.log(value);
+      })
+    }
+  </script>
+</body>
+</html>

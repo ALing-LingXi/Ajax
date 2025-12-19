@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <button>点我一下</button>
+  <script>
+    let btn = document.getElementsByTagName("button")[0]
+    btn.onclick=()=>{
+      fetch("http://127.0.0.1:5000/server?vip=1233&time="+Date.now(),{
+        method:"post",
+        headers:{
+          name:"xixibuxixi"
+        },
+        body: 'username=admit&password=admin'
+      }).then(res=>{
+        return res.json()
+      }).then(res=>{
+        console.log(res);
+      })
+    }
+  </script>
+</body>
+</html>
